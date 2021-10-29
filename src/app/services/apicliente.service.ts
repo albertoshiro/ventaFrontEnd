@@ -5,7 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 //esta es la libreria del observable se utiliza tambien para programacion reactiva
 import { Observable } from 'rxjs';
-import { Response } from '../models/response';
+import {Response} from '../models/response';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,11 @@ export class ApiclienteService {
   private _http : HttpClient
 
   ) { }
+
+
 //es observable dado que se sutiliza cuando realizamos una solicitud a un servicio
   getCustomer(): Observable<Response> {
     return this._http.get<Response>(this.url);
+
   }
 }
