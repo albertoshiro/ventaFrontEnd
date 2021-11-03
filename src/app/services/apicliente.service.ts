@@ -1,13 +1,19 @@
-
-
 //la responsabilidad de este servicio es conectarse a los servicios de cliente
-import { HttpClient } from '@angular/common/http';
+//los http headers definen como o que contendra el mensaje or lo general se envia un objeti json
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 //esta es la libreria del observable se utiliza tambien para programacion reactiva
 import { Observable } from 'rxjs';
+import { Customer } from '../models/customer';
 import {Response} from '../models/response';
-
-
+//pesto es la definicion d eun encabezado , en este podemos enviar que tipo de contenido, contenttype se mandara, en este caso es un objeto json
+//como esta esto escrito 
+const httpOption ={
+  //este objeto nos da las opciones para enviar informacion a el WS
+ headers : new HttpHeaders({
+   'Contend-Type' : 'application/json'
+  })
+};
 @Injectable({
   providedIn: 'root'
 })
@@ -25,5 +31,9 @@ export class ApiclienteService {
   getCustomer(): Observable<Response> {
     return this._http.get<Response>(this.url);
 
+  }
+//nos regresara un response con las httpOptions 
+  add(oCustomer : Customer) : Observable<Response>{
+    return this._http.post<Response>(this.url,oCustomer,httpOption);
   }
 }
