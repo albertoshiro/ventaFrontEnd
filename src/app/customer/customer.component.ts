@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ApiclienteService } from '../services/apicliente.service';
-import {  DialogClienteComponent} from "./dialog/dialogCustomer.component";
+import { DialogClienteComponent} from "./dialog/dialogCustomer.component";
 import { MatDialog } from "@angular/material/dialog";
 @Component({
   selector: 'app-customer',

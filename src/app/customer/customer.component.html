@@ -4,7 +4,7 @@
 
 </div>
 <div>
-    <button mart-raised-button color="Primary" (click)="openAdd()">Nuevo</button>
+    <button mat-raised-button color="primary" (click)="openAdd()">Nuevo</button>
 </div>
 
 
@@ -25,8 +25,6 @@
         <tr mat-header-row *matHeaderRowDef="columns"></tr>
         <!--Este es el comportamiento ara filas con datos-->
         <tr mat-row *matRowDef="let row; columns: columns" ></tr>
-
-       
 
     </table>
 </div>
