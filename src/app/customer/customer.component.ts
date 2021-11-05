@@ -36,5 +36,9 @@ export class CustomerComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogClienteComponent,{
       width : '300'
     });
+
+    dialogRef.afterClosed().subscribe(result =>{
+      this.getCustomer();
+    });
   }
 }

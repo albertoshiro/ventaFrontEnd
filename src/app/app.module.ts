@@ -15,8 +15,10 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
 //barra de avisos
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+//para formularios 
+import { FormsModule } from "@angular/forms";
 
-
+import { DialogClienteComponent } from "../app/customer/dialog/dialogCustomer.component";
 //para realizar solicitudes http
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
@@ -26,7 +28,8 @@ import { CustomerComponent } from './customer/customer.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    CustomerComponent
+    CustomerComponent,
+    DialogClienteComponent
   
   ],
   imports: [
@@ -43,7 +46,8 @@ import { CustomerComponent } from './customer/customer.component';
     MatDialogModule,
     MatButtonModule,
     MatSnackBarModule
-    ,MatInputModule
+    ,MatInputModule,
+    FormsModule
 
 
     

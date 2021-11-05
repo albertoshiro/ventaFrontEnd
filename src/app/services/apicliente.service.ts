@@ -36,4 +36,11 @@ export class ApiclienteService {
   add(oCustomer : Customer) : Observable<Response>{
     return this._http.post<Response>(this.url,oCustomer,httpOption);
   }
+  edit(oCustomer : Customer) : Observable<Response>{
+    return this._http.put<Response>(this.url,oCustomer,httpOption);
+  }
+  delete(id :number ) : Observable<Response>{
+    //las comillas alrevez nos dejan poner variables dentro de {} para concatenar mas facil
+    return this._http.delete <Response>(`${this.url}/${id}`);
+  }
 }
