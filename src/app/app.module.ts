@@ -23,13 +23,14 @@ import { DialogClienteComponent } from "../app/customer/dialog/dialogCustomer.co
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { CustomerComponent } from './customer/customer.component';
-
+import { DialogDeleteComponent } from "./common/delete/dialogDelete.component";
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CustomerComponent,
-    DialogClienteComponent
+    DialogClienteComponent,
+    DialogDeleteComponent
   
   ],
   imports: [

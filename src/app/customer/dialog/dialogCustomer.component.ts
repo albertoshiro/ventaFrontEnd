@@ -1,6 +1,8 @@
 //este para ñps decoradores
-import { Component } from "@angular/core";
-import { MatDialogRef } from "@angular/material/dialog";
+import { Component, Inject } from "@angular/core";
+
+//el data es para mandarle datos al inicio al dialog
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Customer } from "src/app/models/customer";
 import { ApiclienteService } from "src/app/services/apicliente.service";
@@ -20,8 +22,14 @@ export class DialogClienteComponent{
         //dado que necesitaremos ocupar en estos casos el servicio y metodo post add
         public apiCliente : ApiclienteService,
         //para el mensaje de exito o falla 
-        public snackBar : MatSnackBar
+        public snackBar : MatSnackBar,
+        //con la siguiente linea resives es tipo de dato customer 
+        @Inject(MAT_DIALOG_DATA) public oCustomer : Customer
+
         ){
+            if(this.oCustomer !== null){
+                this.nombre = oCustomer.name
+            }
     }
 
 
@@ -31,7 +39,7 @@ export class DialogClienteComponent{
     }
     //metodo para insertar un cliente una vez pulse un boton
     addCustomer(){
-        const customer : Customer = {name :"La marmota 25"};
+        const customer : Customer = {name :this.nombre , id : 0};
         this.apiCliente.add(customer).subscribe(response => {
             if(response.success == 1){
                 this.dialogRef.close();
@@ -44,4 +52,20 @@ export class DialogClienteComponent{
         })
 
     }
+    editCustomer(){
+        //como injectamos a el oCliente en el constructor lo podemoso cupar en elñ sig metodo
+        const customer : Customer = {name :this.nombre , id: this.oCustomer.id};
+        this.apiCliente.edit(customer).subscribe(response => {
+            if(response.success == 1){
+                this.dialogRef.close();
+                this.snackBar.open("Cliente modificado con exito","",{
+                    duration : 2000
+                })
+            }else{
+                console.log("el succes esta en  : "+ response.success);
+            }
+        })
+    }
+
+
 }

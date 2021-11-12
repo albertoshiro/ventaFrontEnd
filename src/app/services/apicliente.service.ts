@@ -40,7 +40,7 @@ export class ApiclienteService {
     return this._http.put<Response>(this.url,oCustomer,httpOption);
   }
   delete(id :number ) : Observable<Response>{
-    //las comillas alrevez nos dejan poner variables dentro de {} para concatenar mas facil
+    //las comillas alrevez nos dejan poner variables dentro de {} para concatenar mas facil,el id va en la url dado que asi le pasamos cual borrar
     return this._http.delete <Response>(`${this.url}/${id}`);
   }
 }

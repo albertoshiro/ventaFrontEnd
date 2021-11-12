@@ -1,13 +1,18 @@
-<h1 mat-dialog-title>Insertar nuevo cliente </h1>
+<h1 mat-dialog-title>{{oCustomer != null ? 'Editar Usuario' : 'Nuevo Usuario'}}</h1>
 <div mat-dialog-content>
     <mat-form-field>
         
-    </mat-form-field>
+    
     <mat-label>Nombre</mat-label>
-    <input matInput>
+    <!--Se podria decir que el la variable nombre esta doblemente ligada-->
+    <input matInput [(ngModel)]="nombre" >
+    </mat-form-field>
+       
 </div>
 <div mat-dialog-actions>
-    <button mat-rised-button (click)="close()">Cancelar</button>
-    <button mat-rised-button color="primary" (click)="addCustomer()">Guardar</button>
 
+    
+    <button mat-raised-button (click) = "close()">Cancelar</button>
+    <!--Despues del (click) es como si tubieras una ventana de angular es decir puedes utilizar typescript-->
+    <button mat-raised-button  color="primary" (click)="oCustomer != null ? editCustomer() : addCustomer()">Guardar</button>
 </div>

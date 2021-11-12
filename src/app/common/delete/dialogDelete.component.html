@@ -1,0 +1,9 @@
+<h1 mat-dialog-title> Eliminar</h1>
+<div mat-dialog-content>
+     <h3>¿estas seguro de eliminar ?</h3> 
+</div>
+<div mat-dialog-actions>
+    <!--cdkFocusInitial este tiene como tal la intencion de poner el foco en este botton al inicio, tambien con [mat-dialog-close]="false" podemos pasar un valor al cerrar el dialog, en este caso true o false a quien solicito abrir el dialog-->
+    <button mat-raised-button cdkFocusInitial [mat-dialog-close]="false">Cancelar</button>
+    <button mat-raised-button color="warn" [mat-dialog-close]="true">Eliminar</button>
+</div>
