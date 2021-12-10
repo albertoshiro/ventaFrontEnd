@@ -55,7 +55,6 @@ export class CustomerComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result =>{
       this.getCustomer();
     });
-
   }
   delete(oCustomer : Customer){
     const dialogRef = this.dialog.open(DialogDeleteComponent,{

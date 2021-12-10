@@ -17,20 +17,24 @@ import { MatInputModule } from "@angular/material/input";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 //para formularios 
 import { FormsModule } from "@angular/forms";
+import{MatCardModule} from "@angular/material/card";
 
 import { DialogClienteComponent } from "../app/customer/dialog/dialogCustomer.component";
 //para realizar solicitudes http
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { CustomerComponent } from './customer/customer.component';
 import { DialogDeleteComponent } from "./common/delete/dialogDelete.component";
+import { LoginComponent } from './login/login.component';
+import { JwtInterceptor } from './security/jwt.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CustomerComponent,
     DialogClienteComponent,
-    DialogDeleteComponent
+    DialogDeleteComponent,
+    LoginComponent
   
   ],
   imports: [
@@ -42,18 +46,18 @@ import { DialogDeleteComponent } from "./common/delete/dialogDelete.component";
     //para menus
     MatSidenavModule,
     
-    //para tablas
+    //para tablas y modulos
     MatTableModule,
     MatDialogModule,
     MatButtonModule,
     MatSnackBarModule
     ,MatInputModule,
-    FormsModule
-
-
-    
+    FormsModule,
+    MatCardModule    
   ],
-  providers: [],
+  providers: [
+    {provide : HTTP_INTERCEPTORS, useClass :JwtInterceptor,multi :true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
