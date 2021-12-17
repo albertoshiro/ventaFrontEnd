@@ -16,7 +16,7 @@ import { MatInputModule } from "@angular/material/input";
 //barra de avisos
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 //para formularios 
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import{MatCardModule} from "@angular/material/card";
 
 import { DialogClienteComponent } from "../app/customer/dialog/dialogCustomer.component";
@@ -53,10 +53,12 @@ import { JwtInterceptor } from './security/jwt.interceptor';
     MatSnackBarModule
     ,MatInputModule,
     FormsModule,
-    MatCardModule    
+    MatCardModule ,
+    ReactiveFormsModule  
   ],
   providers: [
-    {provide : HTTP_INTERCEPTORS, useClass :JwtInterceptor,multi :true }
+    //aca das de alta los interceptors
+    {provide : HTTP_INTERCEPTORS, useClass :JwtInterceptor,multi : true }
   ],
   bootstrap: [AppComponent]
 })

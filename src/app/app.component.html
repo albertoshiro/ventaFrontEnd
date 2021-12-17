@@ -7,7 +7,8 @@
   <mat-drawer #drawer mode="side">
     <!-- [routerLink] se refiere o es muy similar a un aref=-->
     <a [routerLink]="['/home']">Inicio</a><br>
-    <a [routerLink]="['/customer']">Cliente</a>
+    <a [routerLink]="['/customer']">Cliente</a><br>
+    <a (click)="logOut()" *ngIf="usuario">Cerrar sesión</a>
   </mat-drawer>
   <div>
     <button (click)="drawer.toggle();">Mostrar/Ocultar</button>
