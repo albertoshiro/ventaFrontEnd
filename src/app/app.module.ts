@@ -27,6 +27,10 @@ import { CustomerComponent } from './customer/customer.component';
 import { DialogDeleteComponent } from "./common/delete/dialogDelete.component";
 import { LoginComponent } from './login/login.component';
 import { JwtInterceptor } from './security/jwt.interceptor';
+import { SaleComponent } from "./sale/sale.component";
+import { DialogSaleComponent } from './sale/dialog/dialogSale.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +38,11 @@ import { JwtInterceptor } from './security/jwt.interceptor';
     CustomerComponent,
     DialogClienteComponent,
     DialogDeleteComponent,
-    LoginComponent
+    DialogSaleComponent,
+    LoginComponent,
+    SaleComponent,
+    
+    
   
   ],
   imports: [

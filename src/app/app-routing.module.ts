@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CustomerComponent } from './customer/customer.component';
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from './login/login.component';
+import { SaleComponent } from './sale/sale.component';
 import { AuthGuard } from './security/auth.guard';
 
 //aqui es donde enrutaremos, como un objeto en una lista o json
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path: ' ',redirectTo: '/home', pathMatch: 'full'},
   {path:'home' , component : HomeComponent,  canActivate : [AuthGuard]}, 
   {path:'customer' ,component: CustomerComponent, canActivate : [AuthGuard]},
-  { path : 'login', component : LoginComponent }
+  { path : 'login', component : LoginComponent },
+  {path : 'sale', component : SaleComponent,canActivate: [AuthGuard]}
 ];
 
 @NgModule({

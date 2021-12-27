@@ -1,4 +1,5 @@
-<mat-drawer-container>
+<!--aca ponemos el estilo css-->
+<mat-drawer-container class="global-content">
   <!-- es importante para que material jale tener los modulos 
     BrowserModule,
     AppRoutingModule,
@@ -8,6 +9,7 @@
     <!-- [routerLink] se refiere o es muy similar a un aref=-->
     <a [routerLink]="['/home']">Inicio</a><br>
     <a [routerLink]="['/customer']">Cliente</a><br>
+    <a [routerLink]= "['/sale']">Sale</a><br>
     <a (click)="logOut()" *ngIf="usuario">Cerrar sesión</a>
   </mat-drawer>
   <div>
